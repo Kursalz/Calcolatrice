@@ -1,13 +1,5 @@
-Gestore = function () {
-	function risultato() {
-		event.preventDefault();
-		event.stopPropagation();
-		var formula = math.eval($('#display').val());
-		$('#display:text').val(formula);
-		operatoreInserito = false;
-	}
-	;
-	var operatoreInserito = false;
+Gestore = function(){
+
 	$(document).ready(function () {
 		$('input[name="num1"]').click(function (event) {
 			event.preventDefault();
@@ -78,55 +70,34 @@ Gestore = function () {
 			var formula = $('#display').val();
 			formula += 0;
 			$('#display:text').val(formula);
-			
 		});
 		$('input[name="addi"]').click(function (event) {
-			if (!operatoreInserito) {
-				event.preventDefault();
-				event.stopPropagation();
-				var formula = $('#display').val();
-				formula += '+';
-				$('#display:text').val(formula);
-				operatoreInserito = true;
-			} else {
-				risultato();
-			}
+			event.preventDefault();
+			event.stopPropagation();
+			var formula = $('#display').val();
+			formula += '+';
+			$('#display:text').val(formula);
 		});
 		$('input[name="sott"]').click(function (event) {
-			if (!operatoreInserito) {
-				event.preventDefault();
-				event.stopPropagation();
-				var formula = $('#display').val();
-				formula += '-';
-				$('#display:text').val(formula);
-				operatoreInserito = true;
-			} else {
-				risultato();
-			}
+			event.preventDefault();
+			event.stopPropagation();
+			var formula = $('#display').val();
+			formula += '-';
+			$('#display:text').val(formula);
 		});
 		$('input[name="molt"]').click(function (event) {
-			if (!operatoreInserito) {
-				event.preventDefault();
-				event.stopPropagation();
-				var formula = $('#display').val();
-				formula += '*';
-				$('#display:text').val(formula);
-				operatoreInserito = true;
-			} else {
-				risultato();
-			}
+			event.preventDefault();
+			event.stopPropagation();
+			var formula = $('#display').val();
+			formula += '*';
+			$('#display:text').val(formula);
 		});
 		$('input[name="divi"]').click(function (event) {
-			if (!operatoreInserito) {
-				event.preventDefault();
-				event.stopPropagation();
-				var formula = $('#display').val();
-				formula += '/';
-				$('#display:text').val(formula);
-				operatoreInserito = true;
-			} else {
-				risultato();
-			}
+			event.preventDefault();
+			event.stopPropagation();
+			var formula = $('#display').val();
+			formula += '/';
+			$('#display:text').val(formula);
 		});
 		$('input[name="virg"]').click(function (event) {
 			event.preventDefault();
@@ -141,10 +112,12 @@ Gestore = function () {
 			var formula = '';
 			$('#display:text').val(formula);
 		});
-		$('.calcola').click(function (event) {
-			risultato();
-			});
+		$('.calcola').click(function (event) {//keycode 13
+			event.preventDefault();
+			event.stopPropagation();
+			var formula = math.eval($('#display').val());
+			$('#display:text').val(formula);
+		});
 	});
+
 }
-
-
